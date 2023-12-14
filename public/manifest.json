@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Click Search",
+  "version": "0.2",
+  "description": "Click search offers an easy to use extension that can provide information on any YouTube video you are watching. Developed for CSI4999.",
+  "permissions": ["storage", "scripting", "activeTab", "webNavigation"],
+  "host_permissions": ["https://www.googleapis.com/*"],
+  "background": {
+    "service_worker": "service_worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["*://www.youtube.com/watch?v=*"],
+      "run_at": "document_start",
+      "type": "module"
+    }
+  ],
+  "icons": {
+    "192": "logo192.png",
+    "193": "logo193.png"
+  },
+  "action": {
+    "default_icon": {
+      "192": "logo192.png"
+    },
+    "secondary_icon": {
+      "193": "logo193.png"
+    },
+    "default_title": "Extension - Click Search",
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html"
+  }
+}
